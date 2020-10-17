@@ -1,0 +1,26 @@
+{
+  "name": "crss",
+  "version": "1.0.0",
+  "description": "Anew way to making teaching fun",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [
+    "teaching"
+  ],
+  "author": "charles",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "mongoose": "^5.10.9",
+    "nodemon": "^2.0.5",
+    "socket.io": "^2.3.0"
+  }
+}
