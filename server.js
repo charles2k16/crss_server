@@ -14,6 +14,7 @@ connectDB();
 
 // Route files
 const users = require('./routes/users');
+const messages = require('./routes/messages');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Mount Routers
 app.use('/api/v1/users', users);
+app.use('/api/v1/messages', messages);
 
 const PORT = process.env.PORT || 8000;
 
