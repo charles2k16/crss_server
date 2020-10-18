@@ -1,3 +1,4 @@
+const path = require('path');
 const Message = require('../models/Message');
 
 // @desc      Get all messages
@@ -32,5 +33,39 @@ exports.deleteMessage = async (req, res, next) => {
   res.status(200).json({
     success: true,
     data: {}
+  });
+};
+
+
+// @desc      Upload photo/files
+// @route     PUT /api/v1/messages/upload
+
+exports.messageFileUpload = async (req, res, next) => {
+
+  const file = req.files.file;
+
+  // Make sure the image is a photo
+  if (!file.mimetype.startsWith('image')) {
+    return next();
+  }
+
+  // Check filesize
+  if (file.size > process.env.MAX_FILE_UPLOAD) {
+    return next();
+  }
+
+  // Create custom filename
+  let randomString = Math.random().toString(36).substring(7).toUpperCase();
+  file.name = `messageFile_${randomString}.png`;
+
+  file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async err => {
+    if (err) {
+      console.error(err);
+    }
+
+    res.status(200).json({
+      success: true,
+      data: file.name
+    });
   });
 };
