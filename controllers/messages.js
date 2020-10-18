@@ -23,3 +23,14 @@ exports.createMessage = async (req, res, next) => {
     data: message
   });
 };
+
+// @desc      Delete message
+// @route     DELETE /api/v1/messages/:id
+exports.deleteMessage = async (req, res, next) => {
+  await Message.findByIdAndDelete(req.params.id);
+
+  res.status(200).json({
+    success: true,
+    data: {}
+  });
+};
