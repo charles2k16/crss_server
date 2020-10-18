@@ -1,7 +1,7 @@
 {
   "name": "crss",
   "version": "1.0.0",
-  "description": "Anew way to making teaching fun",
+  "description": "A new way to making teaching fun",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
