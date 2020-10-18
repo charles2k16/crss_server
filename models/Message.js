@@ -5,6 +5,7 @@ const MessageSchema = new mongoose.Schema(
     message: String,
     media: String,
     sender_id: String,
+    senderName: String,
     sender: {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
