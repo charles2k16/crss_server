@@ -56,7 +56,7 @@ exports.messageFileUpload = async (req, res, next) => {
 
   // Create custom filename
   let randomString = Math.random().toString(36).substring(7).toUpperCase();
-  file.name = `messageFile_${randomString}.png`;
+  file.name = `messageFile-${randomString}.png`;
 
   file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async err => {
     if (err) {
